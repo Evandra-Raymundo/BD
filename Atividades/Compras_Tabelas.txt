@@ -1,0 +1,47 @@
+create database compras;
+
+use compras;
+
+create table cliente (
+codigo_cliente integer not null primary key,
+nome_cliente varchar (20),
+endereco varchar(30),
+cidade varchar(15),
+cep varchar(8),
+UF varchar(2),
+CNPJ varchar(20),
+IE varchar(20));
+
+create table vendedor(
+codigo_vendedor integer not null primary key,
+nome_vendedor varchar(20),
+salario_fixo float(10,2),
+faixa_comissao varchar(1));
+
+create table produto(
+codigo_produto integer not null primary key,
+unidade varchar(3),
+descricao_produto varchar(30),
+val_unitario float(10,2));
+
+
+create table pedido(
+num_pedido integer not null primary key,
+prazo_entrega integer not null,
+codigo_cliente integer not null,
+codigo_vendedor integer not null,
+foreign key (codigo_cliente) references cliente (codigo_cliente),
+foreign key (codigo_vendedor) references vendedor (codigo_vendedor));
+
+create table item_pedido(
+num_item_pedido integer not null,
+codigo_produto integer not null,
+num_pedido integer not null,
+quantidade integer,
+foreign key (num_pedido) references pedido (num_pedido),
+foreign key (codigo_produto) references produto (codigo_produto));
+
+
+
+
+ 

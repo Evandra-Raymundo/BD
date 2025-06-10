@@ -1,0 +1,61 @@
+1) Selecione todas as informações da tabela proprietario.
+select * from proprietario;
+
+2) Selecione apenas Nome, endereço e telefone da tabela proprietario
+select nome, endereco, telefone from proprietario;
+
+3) Selecione todas as informações da tabela inquilino
+select * from inquilino;
+
+4) Selecione apenas os nomes da tabela inquilino
+select nome from inquilino;
+
+5) Selecione todas as informações da tabela imovel
+select * from imovel;
+
+6) Selecione endereço, cidade e locado da tabela imovel
+select endereco, cidade, locado from imovel;
+
+7)Selecione todas as informações da tabela contrato_locacao
+select * from contrato_locacao;
+
+8) Selecione valor aluguel, taxa administrativa início e término da tabela contrato_locacao
+select valor_aluguel, taxa_administrativa, inicio, termino from contrato_locacao;
+
+9)Selecione nome, cpf e endereco da tabela proprietario, cidade, locado da tabela imovel, valor_aluguel,  inicio da tabela contrato_locacao dos registros
+que o campo locado tenha valor igual a N.
+
+Select p.nome, p.cpf, p.endereco, im.cidade, im.locado, c.valor_aluguel,  c.inicio from  proprietario p
+inner join imovel im
+on p.codigo_proprietario = im.codigo_proprietario
+ inner join contrato_locacao c
+on c.codigo_imovel = im.codigo_imovel
+where im.locado ="N"
+
+
+10)Selecione nome, cpf e endereço da tabela proprietário, cidade, locado da tabela imóvel dos registros que o código do proprietário é diferente de 1
+
+Select p.nome, p.cpf, p.endereco, im.cidade, im.locado from  imovel im
+Inner join proprietario p
+On p.codigo_proprietario = im.codigo_proprietario
+Where  p.codigo_proprietario <> 1
+
+11)Selecione nome e cpf da tabela de  inquilino, endereço , cidade e estado da tabela de  imóvel e valor_aluguel, inicio e código_contrato da tabela de contrato
+
+Select i.nome, i.cpf, im.endereco, im.cidade, im.estado, c.valor_aluguel, c.inicio, c.codigo_contrato from contrato_locacao c
+Inner join inquilino i
+on  i.codigo_inquilino =c.codigo_inquilino
+inner join imovel im
+on im.codigo_imovel = c.codigo_imovel
+
+
+12) Selecione nome e cpf da tabela inquilino, cidade e estado da tabela imovel, valor_aluguel, inicio e termino da tabela contrato_locacao, nome e cpf da tabela 
+proprietario de todos os imóveis cadastrados
+
+Select i.nome, i.cpf, im.endereco, im.cidade, im.estado, c.valor_aluguel, c.inicio, c.termino, p.nome, p.cpf  from  contrato_locacao c
+Inner join inquilino i
+on c.codigo_inquilino = c.codigo_inquilino
+ inner join imovel im
+on c.codigo_imovel = im.codigo_imovel
+inner join proprietario p
+on im.codigo_proprietario = p.codigo_proprietario

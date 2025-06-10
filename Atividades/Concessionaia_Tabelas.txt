@@ -1,0 +1,45 @@
+coCreate database Carros;
+
+create table Fabricante(
+codFabricante integer not null primary key,
+nomeFabricante varchar (50)
+);
+
+create table Automovel (
+codAuto integer not null primary key,
+codFabricante integer,
+foreign key (codFabricante) references Fabricante (codFabricante),
+modelo varchar(30),
+ano integer,
+pais varchar(30),
+preco_tabela decimal(10,2)
+); 
+
+
+create table Revendedora (
+cgc integer not null primary key,
+nome varchar (30),
+cidade varchar (30),
+estado varchar(2)
+);
+
+
+create table Consumidor (
+codConsumidor integer not null primary key,
+nome varchar (50),
+Sobrenome varchar (50)
+);
+
+
+create table Negocio (
+codNegocio integer not null primary key,
+codComprador integer,
+codRevenda integer,
+codAuto integer,
+foreign key (codComprador) references Consumidor(codConsumidor),
+foreign key (codRevenda) references Revendedora(cgc),
+foreign key (codAuto)references Automovel(codAuto),
+data date,
+Preco decimal (10,2)
+);
+

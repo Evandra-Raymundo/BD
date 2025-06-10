@@ -1,0 +1,35 @@
+
+insert into cliente values
+(1,'Lia Dantas'),
+(2,'Luis Correia'),
+(3,'Fabio Moura'),
+(4,'Ana Silva');
+
+insert into modelo values
+(1,'Palio'),
+(2,'Logan'),
+(3,'Azera');
+
+insert into patio values
+(1,'Rua Nova, 100',50),
+(2,'Rua dos Estados, 153',25);
+
+insert into veiculo values
+('BKN-5522','preto',1,2,2000),
+('DMB-1100','prata',2,3,2008),
+('CYF-8998','vermelho',3,2,2010),
+('JJJ-2020','prata',4,1,2005),
+('BKN-7433','branco',3,1,2000);
+
+insert into estaciona values
+(1,current_date,'08:05','10:10',1,'JJJ-2020'),
+(2,current_date,'08:15','09:20',1,'DMB-1100'),
+(3,current_date,'08:23','11:06',1,'CYF-8998'),
+(4,current_date,'09:42','10:15',2,'BKN-7433'),
+(5,current_date,'10:36','12:25',1,'DMB-1100'),
+(6,current_date,'12:15',NULL,2,'BKN-7433'),
+(7,current_date,'10:41','12:45',2,'BKN-5522'),
+(8,current_date,'11:15',NULL,2,'JJJ-2020'),
+(9,current_date,'12:05',NULL,1,'CYF-8998');
+
+

@@ -1,0 +1,24 @@
+
+insert into proprietario values (1,'Ronaldo da Silva','158.890.567-01','Rua: Adolpho,23','13.670-569','São Carlos','SP','(16)3345-7899');
+insert into proprietario values (2,'Carla Monteiro','134.678.900-89','Rua: Simão,123','13.456-000','São Carlos','SP','(16)3444-0099');
+insert into proprietario values (3,'Renata de Lima','156.567.678-65','Rua: São Paulo,45','13.567-890','São Carlos','SP','(16)3459-9056');
+insert into proprietario values (4,'Miguel Soares','145.789.345-34','Rua: Episcopal,56','13.560-571','São Carlos','SP','(16)3367-3434');
+
+
+insert into inquilino values (1,'João Carlos','134.789.567-00');
+insert into inquilino values (2,'Matheus Gonçalves','234.550.678-34');
+insert into inquilino values (3,'Amanda Silva','256.567.888-21');
+insert into inquilino values (4,'Maria Souza','156.444.332-78');
+
+
+insert into imovel values (1,'Rua :São João,678','São Carlos','SP','13.567-000','S',1);
+insert into imovel values (2,'Rua :Rui Barbosa,40','São Carlos','SP','13.547-655','N',2);
+insert into imovel values (3,'Rua :São Paulo,34','São Carlos','SP','13.566-320','S',3);
+insert into imovel values (4,'Rua :Rui Barbosa,670','São Carlos','SP','13.780-563','S',4);
+
+
+
+insert into contrato_locacao values(1,1340.00,340.00,'2011/04/10','2013/04/10',1,2);
+insert into contrato_locacao values(2,760.00,230.00,'2011/03/20','2012/03/20',2,1);
+insert into contrato_locacao values(3,1250.00,340.00,'2011/02/05','2013/02/05',3,3);
+insert into contrato_locacao values(4,830.00,230.00,'2011/05/15','2012/05/15',4,4);

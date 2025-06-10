@@ -1,0 +1,46 @@
+create database imob;
+use imob;
+
+create table proprietario
+( codigo_proprietario integer not null primary key,
+nome varchar(50),
+cpf varchar(14),
+endereco varchar(50),
+cep varchar(10),
+cidade varchar(50),
+estado varchar(50),
+telefone varchar(50)
+);
+
+
+create table inquilino
+( codigo_inquilino integer not null primary key,
+nome varchar(50),
+cpf varchar(14)
+);
+
+
+create table imovel
+( codigo_imovel integer not null primary key,
+endereco varchar(50),
+cidade varchar(50),
+estado varchar(50),
+cep varchar(10),
+locado char(01),
+codigo_proprietario integer,
+foreign key (codigo_proprietario) references proprietario(codigo_proprietario)
+);
+
+
+create table contrato_locacao
+( codigo_contrato integer not null primary key,
+valor_aluguel decimal(10,2),
+taxa_administrativa decimal(10,2),
+inicio date,
+termino date,
+codigo_imovel integer,
+codigo_inquilino integer,
+foreign key (codigo_imovel) references imovel(codigo_imovel),
+foreign key (codigo_inquilino) references inquilino(codigo_inquilino)
+);
+

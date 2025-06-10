@@ -1,0 +1,28 @@
+ 
+SELECT A.Nome, B.Nome
+FROM TabelaA as A
+INNER JOIN TabelaB as B on A.Nome = B.Nome;
+
+
+SELECT A.Nome, B.Nome
+FROM TabelaA as A
+LEFT JOIN TabelaB as B on A.Nome = B.Nome;
+
+SELECT A.Nome, B.Nome
+FROM TabelaA as A RIGHT JOIN TabelaB as B on A.Nome = B.Nome;
+
+
+SELECT A.Nome, B.Nome
+FROM TabelaA as A LEFT JOIN TabelaB as B on A.Nome = B.Nome
+WHERE B.Nome is null;
+
+SELECT A.Nome, B.Nome
+FROM TabelaA as A 
+RIGHT JOIN TabelaB as B on A.Nome = B.Nome
+WHERE A.Nome is null;
+
+
+
+
+
+

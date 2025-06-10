@@ -1,0 +1,129 @@
+create database shopping_bn;
+use shopping_bn;
+
+create table vendedor(
+id_vendedor integer not null primary key,
+nom_vendedor varchar(50),
+cpf_vendedor varchar(14),
+rg_vendedor varchar(12),
+tel_vendedor varchar (15)
+);
+
+insert into vendedor values(1,"Caetano Veloso","678.944.090-90","36.212.803-0","(44)99721-3548");
+insert into vendedor values(2,"Elis Regina dos Santos","438.158.360-42","48.684.018-9","(11)99825-6314");
+insert into vendedor values(3,"Marco Túlio","683.310.700-97","23.629.934-7","(31)993417-8954");
+
+
+
+create table cliente(
+id_cliente integer not null primary key,
+nom_cliente varchar(50),
+cpf_cliente varchar(14),
+rg_cliente varchar(12),
+end_cliente varchar(50),
+num_cliente integer(5),
+bairro_cliente varchar(20),
+tel_cliente varchar (15),
+cidade_cliente varchar(30),
+estado_cliente varchar(2)
+);
+
+insert into cliente values(1,"Ana Maria Silva","001.686.670-37","33.240.386-5","Avenida Cristofoletti",1058,"Vila Nova","(15)99365-4725","Sorocaba","SP");
+insert into cliente values(2,"Lucas Silva e Silva","879.397.920-75","30.363.801-1","Avenida Paulista",1801,"Estrela Sul","(11)99102-3564","Sumaré","SP");
+insert into cliente values(3,"Joelma Calypso","475.588.960-02","30.661.379-7","Avenida Belém",429,"Carumã","(51)99695-2418","Belém","PA");
+insert into cliente values(4,"Carlinhos Brown","286.999.060-05","30.384.804-2","Avenida Stela Marys",850,"Barra","(44)99695-2871","Salvador","BA");
+insert into cliente values(5,"Hebert Vianna","319.887.400-96","28.295.469-7","Rua das Paineiras",1245,"Ipanema","(21)99365-5874","Rio de Janeiro","RJ");
+
+
+
+
+create table produto(
+cod_produto integer not null primary key,
+nom_produto varchar(50),
+qtde_produto integer (10),
+valor_unitario decimal(10,2),
+valor_total decimal(10,2),
+id_vendedor_produto integer,
+foreign key (id_vendedor_produto) references vendedor(id_vendedor)
+);
+
+
+insert into produto values(1,"smart watch",5,150,750,1);
+insert into produto values(2,"Fone de ouvido Blutooth",10,15,150,2);
+insert into produto values(3,"Mouse Óptico",8,20,160,3);
+insert into produto values(4,"Teclado Flexível",6,100,600,2);
+insert into produto values(5,"Ventilador USB",3,80,240,3);
+insert into produto values(6,"Caixa de Som",5,90,450,1);
+insert into produto values(7,"Memória Flash",12,30,360,3);
+insert into produto values(8,"Suporte para Notebook",10,15,150,1);
+
+
+
+create table compra(
+id_compra integer,
+id_cliente_compra integer,
+id_produto_compra integer,
+id_vendedor_compra integer,
+data date,
+qtde_produto_compra integer(10.2),
+valor_compra decimal(10.2),
+foreign key (id_cliente_compra) references cliente(id_cliente),
+foreign key (id_produto_compra) references produto(cod_produto),
+foreign key (id_vendedor_compra) references produto(id_vendedor)
+);
+
+
+
+insert into compra values (1,3,1,2,"2023/02/05",2,300);
+insert into compra values (2,1,4,1,"2023/03/08",1,100);
+insert into compra values (3,4,6,3,"2023/01/22",3,270);
+insert into compra values (4,7,2,2,"2023/02/12",5,75);
+insert into compra values (5,8,3,3,"2023/03/24",4,80);
+insert into compra values (6,4,8,1,"2023/04/01",2,30);
+
+select * from vendedor;
+
+select * from cliente;
+
+select * from produto;
+
+select * from compra;
+
+
+Ver todas as compras**********
+select c.id_compra, cli.nom_cliente, prod.nom_produto,vend.nom_vendedor, c.data,c.qtde_produto_compra, c.valor_compra from compra as c
+inner join cliente as cli on cli.id_cliente = c.id_cliente_compra
+inner join produto as prod on prod.cod_produto = c.id_produto_compra
+inner join vendedor as vend on vend.id_vendedor = c.id_vendedor_compra
+
+
+
+Ver compras por data**********
+select c.id_compra, cli.nom_cliente, prod.nom_produto,vend.nom_vendedor, c.data,c.qtde_produto_compra, c.valor_compra from compra as c
+inner join cliente as cli on cli.id_cliente = c.id_cliente_compra
+inner join produto as prod on prod.cod_produto = c.id_produto_compra
+inner join vendedor as vend on vend.id_vendedor = c.id_vendedor_compra
+where c.data = "2023/01/22"
+
+
+Ver compras por cliente**********
+select c.id_compra, cli.nom_cliente, prod.nom_produto,vend.nom_vendedor, c.data,c.qtde_produto_compra, c.valor_compra from compra as c
+inner join cliente as cli on cli.id_cliente = c.id_cliente_compra
+inner join produto as prod on prod.cod_produto = c.id_produto_compra
+inner join vendedor as vend on vend.id_vendedor = c.id_vendedor_compra
+where cli.nom_cliente = "Ana Maria Silva"
+
+
+Ver compras por vendedor**********
+select c.id_compra, cli.nom_cliente, prod.nom_produto,vend.nom_vendedor, c.data,c.qtde_produto_compra, c.valor_compra from compra as c
+inner join cliente as cli on cli.id_cliente = c.id_cliente_compra
+inner join produto as prod on prod.cod_produto = c.id_produto_compra
+inner join vendedor as vend on vend.id_vendedor = c.id_vendedor_compra
+where vend.nom_vendedor = "Caetano Veloso"
+
+Ver compras por produto**********
+select c.id_compra, cli.nom_cliente, prod.nom_produto,vend.nom_vendedor, c.data,c.qtde_produto_compra, c.valor_compra from compra as c
+inner join cliente as cli on cli.id_cliente = c.id_cliente_compra
+inner join produto as prod on prod.cod_produto = c.id_produto_compra
+inner join vendedor as vend on vend.id_vendedor = c.id_vendedor_compra
+where prod.nom_produto = "smart watch"

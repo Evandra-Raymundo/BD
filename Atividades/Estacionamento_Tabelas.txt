@@ -1,0 +1,37 @@
+				BD ESTACIONAMENTO
+
+create database estacionamento;
+use estacionamento;
+
+*****************************************
+
+create table cliente(
+codcli integer not null primary key,
+nomecli varchar(30));
+
+create table modelo(
+codmod integer not null primary key,
+descmod varchar(20));
+
+create table patio(
+codpat integer not null primary key,
+endpat varchar(45),
+capacidade integer);
+
+create table veiculo(
+placa varchar(8) not null primary key,
+cor varchar(25),
+codcli integer references cliente(codcli),
+modelo integer references modelo(codmod),
+ano integer);
+
+create table estaciona(
+codest integer not null primary key,
+dataent date,
+hsent time,
+hssai time,
+patio integer references patio(codpat),
+veiculo varchar(8) references veiculo(placa));
+
+show tables;
+

@@ -1,0 +1,112 @@
+inserir 10 clientes e 10 vendedores: ***abaixo duas maneiras de declarar***
+
+insert into cliente (codigo_cliente, nome_cliente, endereco, cidade, cep, uf, cnpj, ie) values (1, "wolf", null, "ibate", null, "sp", null, null);
+insert into cliente values (2, "tiago", null, "sao carlos", null, "sp", null, null);
+insert into cliente values (3, "adriano", null, "sao carlos", null, "sp", null, null);
+insert into cliente values (4, "lucas", null, "sao carlos", null, "sp", null, null);
+insert into cliente values (5, "yudi", null, "sao carlos", null, "sp", null, null);
+
+insert into vendedor values (1, "abc", 1000, "a");
+insert into vendedor values (2, "def", 1500, "a");
+insert into vendedor values (3, "ghi", 2000, "a");
+insert into vendedor values (4, "jkl", 2500, "a");
+insert into vendedor values (5, "mno", 3000, "a");
+
+
+**********************************************************************
+Para uso na aula
+
+
+Insert into cliente values
+(1,'Ana','Rua 17, 19','Niteroi','24358310','RJ','12113231/0001-34','2134'),
+(2,'Flavio','Av. Presidente Vargas, 10','Sao Paulo','11467210','SP','33333333/0001-55','4321'),
+(3,'Jorge','Rua Caiapo,13','Curitiba','30335780','PR','12113231/0001-34','2134'),
+(4,'Lucia','Rua Itabira, 123 - Loja 9','Belo Horizonte','45675900','MG','44444444/0001-99','7890'),
+(5,'Mauricio','Av. Paulista, 1236 - sala 2345','Sao Paulo','11645320','SP','77777777/0001-45','4671'),
+(6,'Edmar','Rua da Praia, s/n','Salvador','80670600','BA','22222222/0001-87','6543'),
+(7,'Rodolfo','Largo da Lapa, 27 - sobrado','Rio de Janeiro','21346700','RJ','55555555/0001-07','9080'),
+(8,'Beth','Av. Climerio, 45','Sao Paulo','11234750','SP','66666666/0001-81','1235'),
+(9,'Paulo','Travessa Moraes c/3','Londrina','33619860','PR','11111111/0001-67','6754'),
+(10,'Livia','Av. Beira Mar, 1256','Florianopolis','76812120','SC','22113344/0001-89','7789'),
+(11,'Susana','Rua Lopes Mendes,11','Niteroi','24360510','RJ','12113231/0001-34','2434'),
+(12,'Renato','Rua Meireles,123 -bl.2-sl.345','Sao Paulo','11257890','SP','55446677/0001-21','1287'),
+(13,'Sebastiao','Rua da Igreja, 10','Uberaba','45743210','MG','99775533/0001-36','9878'),
+(14,'Jose','Quadra 3, bl.03, sala 1003','Brasilia','70468670','DF','22446688/0001-73','6577');
+
+
+Insert into vendedor values
+(1,'Josue',1800.00,'C'),
+(2,'Carlos',2490.00,'A'),
+(3,'Joao',2780.00,'C'),
+(4,'Antonio',9500.00,'C'),
+(5,'Felipe',4600.00,'A'),
+(6,'Joana',2300.00,'A'),
+(7,'Joao Paulo',2650.00,'C'),
+(8,'Josias',870.00,'B'),
+(9,'Marcelo',2930.00,'B');
+
+
+Insert into produto values
+(1,'KG','Queijo',0.97),
+(2,'BAR','Chocolate',0.87),
+(3,'L','Vinho',2.00),
+(4,'M','Linho',0.11),
+(5,'SAC','Acucar',0.30),
+(6,'M','Linha',1.80),
+(7,'G','Ouro',6.18),
+(8,'M','Madeira',0.25),
+(9,'M','Cano',1.97),
+(10,'M','Papel',1.05);
+
+Insert into pedido values
+(1,20,7,1),
+(2,20,1,7),
+(3,15,1,7),
+(4,20,1,5),
+(5,20,1,7),
+(6,15,2,6),
+(7,30,3,7),
+(8,30,5,9),
+(9,20,7,1),
+(10,30,8,2),
+(11,15,10,4),
+(12,20,11,4),
+(13,20,11,3),
+(14,20,11,3),
+(15,20,11,3),
+(16,15,12,8),
+(17,30,13,9),
+(18,10,7,3);
+
+Insert into item_pedido values
+(1,1,17,10),
+(1,2,15,35),
+(2,10,13,20),
+(3,2,11,9),
+(3,3,9,18),
+(3,7,7,5),
+(9,10,5,5),
+(5,8,3,8),
+(5,2,1,7),
+(5,10,2,3),
+(5,1,4,10),
+(5,3,6,30),
+(7,6,8,32),
+(8,9,10,6),
+(6,3,12,45),
+(10,8,14,20),
+(10,3,16,10),
+(11,7,1,10),
+(12,5,12,10),
+(12,3,15,70),
+(13,6,8,37),
+(14,10,10,40),
+(15,4,7,10),
+(15,10,3,35),
+(15,6,4,18),
+(16,7,9,17),
+(17,10,11,40),
+(17,7,16,6),
+(17,4,2,10),
+(17,6,13,43),
+(4,7,1,8);

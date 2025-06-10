@@ -1,0 +1,102 @@
+1- Exiba a placa e o nome do cliente
+
+SELECT v.placa, c.nomecli
+FROM veiculo v INNER JOIN cliente c
+ON v.codcli = c.codcli;
+
+2- Mostre o código e o nome do cliente que possui o carro com placa JJJ-2020
+
+SELECT c.codcli, c.nomecli
+FROM veiculo v INNER JOIN cliente c
+ON v.codcli = c.codcli
+WHERE v.placa = 'JJJ-2020';
+
+
+3- Mostre a placa e a cor do veículo com código do estacionamento 3.
+
+SELECT v.placa, v.cor
+FROM veiculo v INNER JOIN estaciona e
+ON e.veiculo = v.placa
+WHERE e.codest = 3;
+
+
+4- Exiba a placa e o ano do veículo com código do estacionamento 5.
+
+SELECT v.placa, v.ano
+FROM veiculo v INNER JOIN estaciona e
+ON v.placa = e.veiculo
+WHERE e.codest = 5;
+
+5- Mostre a placa, ano e modelo dos veículos com ano a partir de 2005, em ordem crescente pelo ano 
+
+SELECT v.placa, v.ano, m.descmod
+FROM veiculo v INNER JOIN modelo m
+ON v.modelo = m.codMod
+WHERE ano >= 2005
+order by ano;
+
+6- Mostre o endereço do pátio, a data, hora de entrada e saída do veículo com placa DMBD-1100
+
+SELECT p.endpat, e.dataent, e.hsent, e.hssai 
+FROM patio p inner join estaciona e
+ON e.patio = p.codpat
+where e.veiculo = 'DMB-1100';
+
+7- Quantos veículos da cor prata estiveram no estacionamento? Coloque o rótulo Quantidade para exibir a consulta.
+
+SELECT count(e.codest) AS Quantidade
+FROM veiculo v INNER JOIN estaciona e
+ON v.placa = e.Veiculo
+WHERE v.cor = 'prata';
+
+8- Exiba o nome dos clientes que tem o carro com código do modelo igual a 1.
+
+SELECT c.nomecli
+FROM veiculo v INNER JOIN cliente c
+ON c.codcli = v.Codcli
+WHERE v.Modelo = 1;
+
+9- Mostre a placa, hora de entrada e saída dos carros da cor 'vermelho'
+SELECT v.placa, e.hsEnt, e.hsSai
+FROM veiculo v INNER JOIN estaciona e
+ON v.placa = e.Veiculo
+WHERE v.cor = 'vermelho';
+
+10- Exiba o código de estacionamento, data e hora da entrada e saída do veículo com placa JJJ-2020
+
+SELECT e.codest,e.dataEnt, e.hsEnt, e.hsSai
+FROM veiculo v INNER JOIN estaciona e
+ON v.placa = e.Veiculo
+WHERE v.placa = 'JJJ-2020';
+
+11- Mostre o nome do cliente com código do estacionamento igual a 2
+
+SELECT c.nomecli
+FROM cliente c INNER JOIN veiculo v
+ON c.codcli= v.codCli INNER JOIN estaciona e
+ON v.placa = e.Veiculo
+WHERE e.codest = 2;
+
+12- Mostre o código e nome do cliente, cor e ano do veículo com código do estacionamento igual a 3
+SELECT c.codcli, c.nomecli, v.cor, v.ano
+FROM cliente c INNER JOIN veiculo v
+ON c.codcli = v.codCli INNER JOIN estaciona e
+ON v.placa = e.Veiculo
+WHERE e.codest = 3;
+
+13- Qual a descrição do modelo do veículo com código do estacionamento igual a 2?
+
+SELECT m.descmod
+FROM modelo m INNER JOIN veiculo v
+ON m.codMod = v.Modelo INNER JOIN estaciona e
+ON v.placa = e.Veiculo
+WHERE e.codest = 2;
+
+14- Mostre a placa do carro, nome do cliente e modelo do carro em ordem crescente pela placa do carro.
+
+SELECT v.placa, c.nomecli, m.descmod
+FROM modelo m INNER JOIN veiculo v
+ON m.codMod = v.Modelo INNER JOIN cliente c
+ON c.codcli = v.codCli
+ORDER BY placa;
+

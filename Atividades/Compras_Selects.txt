@@ -1,0 +1,145 @@
+1) Selecione todos os campos de todas as tabelas	
+        
+        select * from cliente;
+	select * from vendedor;
+	select * from produto;
+	select * from pedido;
+	select * from item_pedido;
+
+2) Selecione os campos select descricao_produto, unidade, val_unitario e ordene a exibição por descricao_produto
+
+select descricao_produto, unidade, val_unitario
+from produto order by descricao_produto;
+
+3) Selecione nome_cliente, endereco  da tabela de clientes
+
+select nome_cliente, endereco 
+from cliente 
+where cidade = "Niteroi";
+
+4) Selecione descricao_produto, val_unitario da tabela produto onde os nomes comecem com M
+
+select descricao_produto, val_unitario 
+from produto 
+where unidade like 'M' 
+
+5)  Selecione cidade, uf, nome_cliente  da tabela de clientes onde a cidade seja São Paulo
+ou a UF seja igual a Paraná e ordene por nome do cliente.
+
+select cidade, uf, nome_cliente 
+from cliente 
+where cidade = "Sao Paulo" or uf = "pr" 
+order by nome_cliente;
+
+6) Selecione todas as informações de pedido onde o prazo de entrega seja diferente de 15 e ordene
+por número de pedido em ordem descendente
+
+select * from pedido 
+where prazo_entrega <> 15 
+order by num_pedido desc;
+
+
+7) Selecione codigo_produto, descricao_produto da tabela produtos 
+onde o valor unitário esteja entre 0.32 e 2
+
+select codigo_produto, descricao_produto 
+from produto 
+where val_unitario between 0.32 and 2;
+
+8) Selecione e exiba todas as informações da tabela de produtos onde a unidade comece com K
+
+select * from produto 
+where unidade like 'k%';
+
+9) Mostre todos os dados dos vendedores cujo nome não comece com as letras "JO"
+
+SELECT * FROM vendedor
+WHERE nome_vendedor NOT LIKE 'JO%';
+	
+10) Mostre todos os dados dos vendedores que a faixa de comissão seja A ou B
+SELECT * FROM vendedor
+WHERE faixa_comissao in ('A', 'B');
+	
+11) Mostre todos os dados dos cliente que tem o IE (inscrição estadual) em branco
+
+SELECT * FROM CLIENTE
+WHERE IE = 'NULL';
+	
+12) Exiba nome, cidade e UF dos cliente em ordem alfabética pela cidade
+
+SELECT nome_cliente, cidade, uf FROM CLIENTE
+order by UF, cidade;
+	
+13) Selecione a descricao_produto, val_unitario da tabela produtos onde a unidade seja igual a M 
+e ordene a exibição por val_unitario asc
+
+SELECT descricao_produto, val_unitario FROM produto
+WHERE unidade = 'M'
+order by val_unitario asc;
+	
+14) Selecione o menor e o maior salário fixo para os vendedores
+
+SELECT MIN(salario_fixo) as 'Menor salário' from vendedor;
+    SELECT MAX(salario_fixo) as 'Maior salário' from vendedor;
+	
+15)  Selecione e conte  quantidade e exiba como Qualidade Total e o código de produtos da tabela item do 
+pedido onde o codigo_produto = '3';
+
+SELECT COUNT(quantidade) as 'Qtd Total', codigo_produto from item_pedido
+    where codigo_produto = '3';
+	
+16) Selecione a média dos salários dos vendedores da tabela vendedor
+    SELECT AVG(SALARIO_FIXO) FROM VENDEDOR
+
+17) Selecione nome_vendedor, salario_fixo da tabela vendedor onde o salário fixo seja 
+maior ou igual a 2500
+
+SELECT nome_vendedor, salario_fixo from VENDEDOR
+    where salario_fixo >= '2500';
+
+18)Selecione nome_cliente e endereço da tabela de  cliente e também o num_pedido e o prazo_entrega da tabela de pedidos onde o código 
+
+SELECT  c.nome_cliente,c.endereco,p.num_pedido,p.prazo_entrega 
+FROM cliente c INNER JOIN pedido p
+ON c.codigo_cliente = p.codigo_cliente 
+Where c.codigo_cliente <=6  ; 
+
+
+19)Selecione o codigo_vendedor e o nome_vendedor da tabela de vendedor e num_pedido e o prazo_entrega da tabela de pedidos para prazos de entrega  iguais a 20.
+
+SELECT v.codigo_vendedor,v.nome_vendedor,p.num_pedido,p.prazo_entrega
+FROM vendedor v INNER JOIN pedido p
+ON v.codigo_vendedor = p.codigo_vendedor
+Where p.prazo_entrega =20;
+
+
+20) Selecione codigo_produto e a descricao_produto da tabela de produto e a quantidade da tabela item_pedido onde a quantidade seja menor ou igual a 18
+
+SELECT p.codigo_produto,p.descricao_produto,i.quantidade
+FROM produto p  INNER JOIN item_pedido i
+ON  p.codigo_produto = i.codigo_produto
+where i.quantidade <=18
+
+
+21) Selecione codigo_produto,descricao da tabela produto e quantidade da tabela item_produto onde a descrição comece com a letra "C" 
+
+SELECT p.codigo_produto, p.descricao_produto, i.quantidade 
+FROM produto p
+INNER JOIN  item_pedido i ON p.codigo_produto = i.codigo_produto
+where p.descricao_produto like"C%"
+
+
+22) Selecione o nome do cliente da tabela cliente, nome do vendedor da tabela vendedor, número do pedido, prazo de entrega da tabela pedido, 
+código do produto e descrição do produto da tabela de produto e quantidade da tabela item do produto onde  a quantidade seja maior que 15
+
+SELECT c.nome_cliente, v.nome_vendedor, pd.num_pedido,pd.prazo_entrega,p.codigo_produto,p.descricao_produto, i.quantidade
+FROM  produto p
+inner join  item_pedido i
+  on p.codigo_produto = i.codigo_produto
+inner join  pedido pd
+  on pd.num_pedido = i.num_pedido
+  inner join cliente c
+   on c.codigo_cliente = pd.codigo_cliente
+inner join vendedor v
+  on v.codigo_vendedor = pd.codigo_vendedor
+where i.quantidade>15

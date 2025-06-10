@@ -1,0 +1,32 @@
+
+insert into Fabricante values (1,'Volkswagen');
+insert into Fabricante values (2,'Peugeot');
+insert into Fabricante values (3,'Chevrolet');
+insert into Fabricante values (4,'Caoa');
+insert into Fabricante values (5,'Ford');
+insert into Fabricante values (6,'Fiat');
+
+
+insert into Automovel values (1,6,'Toro',2000,'Brasil',25000.00);
+insert into Automovel values (2,5,'EcoSport',2005,'Argentina',39000.00);
+insert into Automovel values (3,2,'P2008',1990,'Brasil',15000.00);
+insert into Automovel values (4,3,'Corsa Sedã',1995,'Brasil',12500.00);
+insert into Automovel values (5,4,'Tiggo',2003,'Argentina',20000.00);
+insert into Automovel values (6,1,'Gol',1995,'Argentina',10000.00);
+
+
+insert into Revendedora values (121215,'Garagem Auto-Estrada','Palmas','TO');
+insert into Revendedora values (154956,'Siga Bem','Paraíso','TO');
+insert into Revendedora values (147896,'Vá adiante','Goiânia','GO');
+
+
+insert into Consumidor values (159753,'José','Da Conceição');
+insert into Consumidor values (158741,'Paulo','Da Silva Cunha');
+insert into Consumidor values (789564,'Maria','José dPaula');
+insert into Consumidor values (498534,'Joana','Maranhão da Silvéria');
+
+
+insert into Negocio values (1,158741,121215,3,'2000/05/15',17500.00);
+insert into Negocio values (2,498534,154956,1,'2022/08/22',28000.00);
+insert into Negocio values (3,159753,147896,4,'2021/10/12',15500.00);
+insert into Negocio values (4,498534,147896,2,'2023/01/28',42000.00);
