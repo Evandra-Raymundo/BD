@@ -1,2 +1,3 @@
 # BD
 Informações sobre base de dados, banco de dados e CRUD
+Este repositório destina-se a fornecer um conteúdo simples e prático sobre Banco de Dados. Com informações básicas tais como: tipos de arquivos, tamanho, definições pertinentes à criação de uma estrutura de Banco de Dados até  informações mais complexas, como criação de uma base de dados, alteração, inclusão e exclusão de dados. Formas de seleção e junção de informações em tabelas entre outros. Esse material foi criado para usuários leigos que precisam aprender de forma rápida noções de Banco de Dados,
